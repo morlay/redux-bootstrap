@@ -1,0 +1,44 @@
+{
+  "name": "@morlay/redux-bootstrap",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "dependencies": {
+    "lodash": "4.x",
+    "react": "15.3.x",
+    "react-dom": "15.3.x",
+    "react-redux": "4.4.x",
+    "react-router": "2.6.x",
+    "react-router-redux": "4.0.x",
+    "recompose": "0.20.x",
+    "redux": "3.5.x"
+  },
+  "devDependencies": {
+    "@morlay/babel-preset": "1.0.x",
+    "@morlay/eslint-config": "1.0.x",
+    "@morlay/tests-react": "1.0.x",
+    "babel-plugin-lodash": "3.2.6",
+    "babel-preset-es2015": "6.9.x",
+    "babel-preset-react": "6.11.x"
+  },
+  "config": {
+    "MOCHA_OPTS": "-R dot --compilers js:babel-core/register src/__tests__/*.spec.js"
+  },
+  "scripts": {
+    "build": "babel src/ --ignore __*__ --out-dir lib/",
+    "lint": "eslint ./ --fix",
+    "mocha": "mocha $npm_package_config_MOCHA_OPTS",
+    "test": "npm run lint && npm run mocha",
+    "prepublish": "npm run build"
+  },
+  "description": "Bootstrap for my web redux react projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morlay/redux-bootstrap.git"
+  },
+  "author": "Morlay Null <morlay.null@gmail.com>",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/morlay/redux-bootstrap/issues"
+  },
+  "homepage": "https://github.com/morlay/redux-bootstrap#readme"
+}
