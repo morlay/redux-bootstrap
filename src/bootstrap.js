@@ -27,18 +27,20 @@ const bootstrap = ({
       routes: getRoutes(store),
       history: syncHistoryWithStore(history, store),
     }, (error, redirectLocation, renderProps) => {
-      if (error) {
-        reject(error);
-      } else if (redirectLocation) {
-        resolve({
+      if (redirectLocation) {
+        return resolve({
           redirectLocation,
         });
-      } else {
-        resolve({
+      }
+
+      if (renderProps) {
+        return resolve({
           ...renderProps,
           store,
         });
       }
+
+      return reject(error || 'Not match');
     });
   });
 };
